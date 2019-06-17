@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Pawame Tinder For Cats</string>
+    <string name="home">Home</string>
+    <string name="favorites">Favorites</string>
+    <string name="upload">Upload</string>
+
+    <string name="network_issue_title">Network Issue</string>
+    <string name="network_issue_message">We are having issues connecting to the internet. Make sure your internet is
+        on
+    </string>
+    <string name="love_it">Love It</string>
+    <string name="dislike">Dislike</string>
+</resources>
