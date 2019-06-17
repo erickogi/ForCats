@@ -1,19 +1,30 @@
+/*
+ * Copyright 2019 Eric Kogi. All rights reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.kogicodes.pawametinderforcats.data
 
 import NetworkUtils
 import RequestService
 import android.app.Application
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.dev.cabinzz.utils.ErrorUtils
-import com.google.gson.Gson
 import com.kogicodes.pawametinderforcats.R
 import com.kogicodes.pawametinderforcats.data.dao.CatDao
 import com.kogicodes.pawametinderforcats.model.Cat
 import com.kogicodes.pawametinderforcats.model.custom.Resource
 import com.kogicodes.pawametinderforcats.ui.uiUtils.AppiException
+import com.kogicodes.pawametinderforcats.ui.uiUtils.ErrorUtils
 import com.kogicodes.pawametinderforcats.ui.uiUtils.FailureUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -21,7 +32,6 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 class CatRepository(application: Application) {
     private val catDao: CatDao
@@ -48,7 +58,6 @@ class CatRepository(application: Application) {
 
 
     private fun excuteGetCats() {
-        Log.d("CallOnStart", Gson().toJson(""))
         GlobalScope.launch(context = Dispatchers.Main) {
             val call = RequestService.getService().getCats(0,100)
             call.enqueue(object : Callback<List<Cat>> {
